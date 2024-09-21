@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+  
+body{
+    display: flex;
+    min-height: 100vh;
+    background: rgb(9, 1, 43);
+    background-size: cover;
+    background-position: center;
+}
+
+.Home .btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 45px;
+    background: #fff;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+  
+.button{
+    font-size: 16px;
+    color: ;
+
+}
+
+.dropdown{
+    display: inline-block;
+}
+.dropdown button{
+    background-color: hsl(202, 83%, 64%);
+    color: white;
+    padding: 10px 33px;
+    border: none;
+    border-radius: 15px 50px 50px 10px;
+    cursor: pointer;
+}
+.dropdown a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+.dropdown .content{
+    display: none;
+    position: absolute;
+    background-color: hsl(202, 83%, 64%);
+    min-width: 100px;
+    box-shadow: 2px 2px 5px #ff6ac1;
+}
+.dropdown:hover .content{
+    display: block;
+}
+.dropdown:hover button{
+    background-color: #ff6ac1;
+}
+.dropdown a:hover{
+    background-color: #370623;
+}

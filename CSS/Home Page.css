@@ -1,0 +1,100 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  display: flex;
+  min-height: 100vh;
+  background: rgb(9, 1, 43);
+  background-size: cover;
+  background-position: center;
+}
+
+.wrapper .btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10%;
+  height: 45px;
+  background: #fff;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.crdContainer{
+  width: 85px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 25px;
+  
+}
+
+.card{
+  flex: 1 0 300px;
+  height: 400px;
+  background-color: #ff6ac1;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover{
+  transform: scale(1.05);
+}
+
+.crdContent{
+  font-weight:bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  height: 100px;
+  text-align: center;
+}
+
+.crdContent .crdBtn{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #204e69;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.crdContent .crdBtn:hover{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #246d82;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.crdContent h1{
+  margin-top: 100px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.crdContent p{
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #fff;
+} 
