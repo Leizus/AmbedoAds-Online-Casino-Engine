@@ -71,13 +71,55 @@ body{
 }
 
 .betTable {
+    display: flex;
     margin: auto;
     height: 200px;
     position: relative;
     border: 3px solid green;
+    background-color: greenyellow;
     justify-content: center;
 }
 
 .tableCenter {
     height: 10px;
+    padding: 0px 0px;
+
+}
+
+.leftMost{
+    width: 50px;
+    height:122px;
+    border-radius: 50px 10px 10px 50px;
+    color: white;
+    background-color: green;
+    padding: 10px 15px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.rBtn{
+    color: white;
+    padding: 10px 15px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.red {
+    background-color: red;
+}
+
+.black {
+    background-color: black;
+}
+
+.green{
+    background-color: green;
+}
+
+.rBtn:hover{
+    transform: scale(1.15);
+}
+
+.leftMost:hover{
+    transform: scale(1.15);
 }
