@@ -5,9 +5,11 @@ const midClick = document.getElementById("mid2to1"); // 2 to 1 button
 const botRowClick = document.querySelectorAll(".bottomRow"); //selects the Bottom Row
 const botClick = document.getElementById("bot2to1"); // 2 to 1 button
 
+//roulette
 
+//roulette
 
-
+//top row styles
 topClick.addEventListener("mouseover", event => {
     topRowClick.forEach((e) => {
         e.style.border.color = "orange";
@@ -21,6 +23,7 @@ topClick.addEventListener("mouseout", event => {
     });
 });
 
+//middle row styles
 midClick.addEventListener("mouseover", event => {
     midRowClick.forEach((e) => {
         e.style.backgroundColor = "white";
@@ -33,6 +36,7 @@ midClick.addEventListener("mouseout", event => {
     });
 });
 
+//bottom row styles
 botClick.addEventListener("mouseover", event => {
     botRowClick.forEach((e) => {
         e.style.backgroundColor = "white";
