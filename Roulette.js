@@ -1,5 +1,3 @@
-
-
 const topRowClick = document.querySelectorAll(".topRow"); //selects the Top Row
 const topClick = document.getElementById("top2to1"); // 2 to 1 button
 const midRowClick = document.querySelectorAll(".midRow"); //selects the Middle Row
@@ -337,6 +335,23 @@ const getRouletteWheelColor = index => {
 
 window.rouletteWheelNumbers = rouletteWheelNumbers;
 
+function addFlipper() { //Result Card Fumction
+  const mkDiv = className => {
+    const d = document.createElement("div");
+    d.classList.add(...className.split(" "));
+    return d;
+  };
+  const flipper = mkDiv("flipper");
+  const front = mkDiv("front-face");
+  const back = mkDiv("back-face");
+  flipper.appendChild(front);
+  flipper.appendChild(back);
+  document.querySelector(".result").appendChild(flipper);
+  return (number, color) => {
+    flipper.classList.add("flip", color);
+    back.innerText = number;
+  };
+}
 
 function startRotation(speed) {
   if (isRotating) {
@@ -345,18 +360,20 @@ function startRotation(speed) {
 
   isRotating = true;
 
+  const writeResult = addFlipper();
+
   const bezier = [0.165, 0.84, 0.44, 1.005];
 
   const newWheelIndex = currentWheelIndex - speed;
   const result = getRouletteWheelNumber(newWheelIndex);
   const resultColor = getRouletteWheelColor(newWheelIndex);
   (() => {
-    const newRotaion = currentWheelRotation + (360 / 37) * speed;
+    const newRotation = currentWheelRotation + (360 / 37) * speed;
     console.log(getRouletteWheelNumber(currentWheelIndex), "---> ", result);
     var myAnimation = anime({
       targets: [".layer-2", ".layer-4"],
       rotate: function() {
-        return newRotaion;
+        return newRotation;
       },
       duration: function() {
         return 5000;
@@ -366,15 +383,15 @@ function startRotation(speed) {
       easing: `cubicBezier(${bezier.join(",")})`,
       // easing: "cubicBezier(0.000, 1.175, 0.980, 0.990)",
       complete: (...args) => {
-        currentWheelRotation = newRotaion;
+        currentWheelRotation = newRotation;
         currentWheelIndex = newWheelIndex;
       }
     });
   })();
 
   (() => {
-    const newRotaion = -4 * 360 + currentBallRotation;
-    console.log("newRotaion", newRotaion);
+    const newRotation = -4 * 360 + currentBallRotation;
+    console.log("newRotation", newRotation);
     var myAnimation1 = anime({
       targets: ".ball-container",
       translateY: [
@@ -383,14 +400,14 @@ function startRotation(speed) {
         { value: 25, duration: 900 },
         { value: 50, duration: 1000 }
       ],
-      rotate: [{ value: newRotaion, duration: 4000 }],
+      rotate: [{ value: newRotation, duration: 4000 }],
       duration: function() {
         return 4000; // anime.random(800, 1400);
       },
       loop: 1,
       easing: `cubicBezier(${bezier.join(",")})`,
       complete: () => {
-        currentBallRotation = newRotaion;
+        currentBallRotation = newRotation;
         writeResult(result, resultColor);
         isRotating = false;
       }
