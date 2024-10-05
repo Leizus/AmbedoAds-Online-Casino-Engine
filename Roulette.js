@@ -4,45 +4,95 @@ const midRowClick = document.querySelectorAll(".midRow"); //selects the Middle R
 const midClick = document.getElementById("mid2to1"); // 2 to 1 button
 const botRowClick = document.querySelectorAll(".bottomRow"); //selects the Bottom Row
 const botClick = document.getElementById("bot2to1"); // 2 to 1 button
+//twelves
+const fTwelve = document.querySelectorAll(".f12"); //selects first twelve
+const fTwelveMouse = document.getElementById("1stTwelve");
+const sTwelve = document.querySelectorAll(".s12"); //selects second twelve
+const sTwelveMouse = document.getElementById("2ndTwelve");
+const tTwelve = document.querySelectorAll(".t12"); //selects third twelve
+const tTwelveMouse = document.getElementById("3rdTwelve");
 
 //top row styles
 topClick.addEventListener("mouseover", event => {
-  topRowClick.forEach((e) => {
-      e.style.backgroundColor = "white";
+  topRowClick.forEach((e) => {  
+      e.style.setProperty('transform', 'scale(1.10)');
+      
   });
 });
 
 topClick.addEventListener("mouseout", event => {
   topRowClick.forEach((e) => {
-      e.style.backgroundColor = "green";
+      e.style.backgroundColor = "transparent";
+      e.style.setProperty('transform', 'scale(1)');
   });
 });
 
 //middle row styles
 midClick.addEventListener("mouseover", event => {
   midRowClick.forEach((e) => {
-      e.style.backgroundColor = "white";
+      e.style.setProperty('transform', 'scale(1.10)');    
   });
 });
 
 midClick.addEventListener("mouseout", event => {
   midRowClick.forEach((e) => {
-      e.style.backgroundColor = "green";
+      e.style.setProperty('transform', 'scale(1)');
   });
 });
 
 //bottom row styles
 botClick.addEventListener("mouseover", event => {
   botRowClick.forEach((e) => {
-      e.style.backgroundColor = "white";
+      e.style.setProperty('transform', 'scale(1.10)');    
   });
 });
 
 botClick.addEventListener("mouseout", event => {
   botRowClick.forEach((e) => {
-      e.style.backgroundColor = "green";
+      e.style.setProperty('transform', 'scale(1)');
   });
 });
+
+//twelves
+
+fTwelveMouse.addEventListener("mouseover", event => {
+  fTwelve.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1.15)');
+  });
+});
+
+fTwelveMouse.addEventListener("mouseout", event => {
+  fTwelve.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1)');
+  });
+});
+
+sTwelveMouse.addEventListener("mouseover", event => {
+  sTwelve.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1.15)');
+  });
+});
+
+sTwelveMouse.addEventListener("mouseout", event => {
+  sTwelve.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1)');
+  });
+});
+
+tTwelveMouse.addEventListener("mouseover", event => {
+  tTwelve.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1.15)');
+  });
+});
+
+tTwelveMouse.addEventListener("mouseout", event => {
+  tTwelve.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1)');
+  });
+});
+
+
+
 
 //observer
 class SafeObserver {
@@ -335,10 +385,10 @@ const getRouletteWheelColor = index => {
 
 window.rouletteWheelNumbers = rouletteWheelNumbers;
 
-function addFlipper() { //Result Card Fumction
+function addFlipper() { //Result Card Function
   const mkDiv = className => {
     const d = document.createElement("div");
-    d.classList.add(...className.split(" "));
+    d.classList.add(...className.split(" ")); 
     return d;
   };
   const flipper = mkDiv("flipper");
@@ -497,3 +547,7 @@ document.querySelector(".roulette-wheel").addEventListener(
 
 window.startRotation = startRotation;
 //Roulette
+
+//Buttons
+const three = document.getElementById("t3"); //top 3 button
+//Buttons
