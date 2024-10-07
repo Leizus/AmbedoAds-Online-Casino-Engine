@@ -15,7 +15,7 @@ const tTwelveMouse = document.getElementById("3rdTwelve");
 //top row styles
 topClick.addEventListener("mouseover", event => {
   topRowClick.forEach((e) => {  
-      e.style.setProperty('transform', 'scale(1.10)');
+      e.style.setProperty('transform', 'scale(1.09)');
       
   });
 });
@@ -30,7 +30,7 @@ topClick.addEventListener("mouseout", event => {
 //middle row styles
 midClick.addEventListener("mouseover", event => {
   midRowClick.forEach((e) => {
-      e.style.setProperty('transform', 'scale(1.10)');    
+      e.style.setProperty('transform', 'scale(1.09)');    
   });
 });
 
@@ -43,7 +43,7 @@ midClick.addEventListener("mouseout", event => {
 //bottom row styles
 botClick.addEventListener("mouseover", event => {
   botRowClick.forEach((e) => {
-      e.style.setProperty('transform', 'scale(1.10)');    
+      e.style.setProperty('transform', 'scale(1.09)');    
   });
 });
 
@@ -57,7 +57,7 @@ botClick.addEventListener("mouseout", event => {
 
 fTwelveMouse.addEventListener("mouseover", event => {
   fTwelve.forEach((e) => {
-      e.style.setProperty('transform', 'scale(1.15)');
+      e.style.setProperty('transform', 'scale(1.09)');
   });
 });
 
@@ -69,7 +69,7 @@ fTwelveMouse.addEventListener("mouseout", event => {
 
 sTwelveMouse.addEventListener("mouseover", event => {
   sTwelve.forEach((e) => {
-      e.style.setProperty('transform', 'scale(1.15)');
+      e.style.setProperty('transform', 'scale(1.09)');
   });
 });
 
@@ -81,7 +81,7 @@ sTwelveMouse.addEventListener("mouseout", event => {
 
 tTwelveMouse.addEventListener("mouseover", event => {
   tTwelve.forEach((e) => {
-      e.style.setProperty('transform', 'scale(1.15)');
+      e.style.setProperty('transform', 'scale(1.09)');
   });
 });
 
