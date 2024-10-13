@@ -463,6 +463,19 @@ function startRotation(speed) {
       }
     });
   })();
+
+//BETTING
+console.log("this is the Betting portion.");
+console.log(result);
+if (result === 3) async () => {
+  await delay(3000);
+  console.log(result);
+  console.log("YOU WON");
+  alert("YOU WON");
+}
+//BETTING
+
+
 }
 
 function offsetEl(el) {
@@ -551,3 +564,4 @@ window.startRotation = startRotation;
 //Buttons
 const three = document.getElementById("t3"); //top 3 button
 //Buttons
+

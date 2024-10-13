@@ -1,100 +1,84 @@
-(function () {
-    "use strict";
-  
-    const items = [
-      "7️⃣",
-      "❌",
-      "🍓",
-      "🍋",
-      "🍉",
-      "🍒",
-      "💵",
-      "🍊",
-      "🍎"
-    ];
-    document.querySelector(".info").textContent = items.join(" ");
-  
-    const doors = document.querySelectorAll(".door");
-    document.querySelector("#spinner").addEventListener("click", spin);
-    document.querySelector("#reseter").addEventListener("click", init);
-  
-    async function spin() {
-      init(false, 1, 2);
-      for (const door of doors) {
-        const boxes = door.querySelector(".boxes");
-        const duration = parseInt(boxes.style.transitionDuration);
-        boxes.style.transform = "translateY(0)";
-        await new Promise((resolve) => setTimeout(resolve, duration * 100));
-      }
+let slot_screen = document.getElementById("slot-screen");
+let reel = document.getElementsByClassName("reel");
+let reels = document.getElementsByClassName("reels");
+let stop_btn = document.getElementsByClassName("stop-btn");
+let start_btn = document.getElementById("start-btn");
+
+let sec = 100;
+let stopReelFlag = [];
+let reelCounts= []
+let slotFrameHeight; 
+let slotReelsHeight;
+let slotReelItemHeight;
+let slotReelStartHeight;
+
+let slot = {
+  init:function(){
+    stopReelFlag[0] = stopReelFlag[1] = stopReelFlag[2] = false;
+    reelCounts[0] = reelCounts[1] = reelCounts[2] = 0;
+  },
+
+  start:function(){
+    slot.init();
+    for(let index = 0; index < 3; index++){
+      slot.animation(index);
     }
-  
-    function init(firstInit = true, groups = 1, duration = 1) {
-      for (const door of doors) {
-        if (firstInit) {
-          door.dataset.spinned = "0";
-        } else if (door.dataset.spinned === "1") {
+  },
+
+  stop:function(i){
+    stopReelFlag[i] = true
+    if(stopReelFlag[0] && stopReelFlag[1] && stopReelFlag[2]){
+      start_btn.removeAttribute("disabled");
+    }
+
+  },
+
+  resetLocationInfo:function(){
+    slotFrameHeight = slot_screen.offsetHeight;
+    slotReelsHeight = reels[0].offsetHeight;
+    slotReelItemHeight = reel[0].offsetHeight;
+    slotReelStartHeight = -slotReelsHeight;
+    slotReelStartHeight += slotFrameHeight - (slotFrameHeight / 2) + slotReelItemHeight * 3 / 2;
+    for(let i = 0; i < reels > length; i++){
+      reels[i].style.top = string(slotReelStartHeight) + "px";
+    }
+  },
+
+  animation:function(index){
+    if(reelCounts[index] >= 8){
+      reelCounts[index] = 0;
+    }
+    $(".reels").eq(index).animate({
+      "top":slotReelStartHeight + (reelCounts[index] * slotReelItemHeight)
+    },
+    {
+      duration: sec,
+      easing:"linear",
+      complete:function(){
+        if(stopReelFlag[index]){
           return;
         }
-  
-        const boxes = door.querySelector(".boxes");
-        const boxesClone = boxes.cloneNode(false);
-  
-        const pool = ["❓"];
-        if (!firstInit) {
-          const arr = [];
-          for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
-            arr.push(...items);
-          }
-          pool.push(...shuffle(arr));
-  
-          boxesClone.addEventListener(
-            "transitionstart",
-            function () {
-              door.dataset.spinned = "1";
-              this.querySelectorAll(".box").forEach((box) => {
-                box.style.filter = "blur(1px)";
-              });
-            },
-            { once: true }
-          );
-  
-          boxesClone.addEventListener(
-            "transitionend",
-            function () {
-              this.querySelectorAll(".box").forEach((box, index) => {
-                box.style.filter = "blur(0)";
-                if (index > 0) this.removeChild(box);
-              });
-            },
-            { once: true }
-          );
-        }
-  
-        for (let i = pool.length - 1; i >= 0; i--) {
-          const box = document.createElement("div");
-          box.classList.add("box");
-          box.style.width = door.clientWidth + "px";
-          box.style.height = door.clientHeight + "px";
-          box.textContent = pool[i];
-          boxesClone.appendChild(box);
-        }
-        boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
-        boxesClone.style.transform = `translateY(-${
-          door.clientHeight * (pool.length - 1)
-        }px)`;
-        door.replaceChild(boxesClone, boxes);
+        reelCounts[index]++;
+        slot.animation(index);
       }
+    });
+  },
+};
+
+window.onload = function(){
+  slot.init();
+  slot.resetLocationInfo();
+  start_btn.addEventListener("click", function(e){
+    e.target.setAttribute("disabled", true)
+    slot.start();
+    for(let i = 0; i < stop_btn.length; i++){
+      stop_btn[i].removeAttribute("disabled");
     }
+  });
   
-    function shuffle([...arr]) {
-      let m = arr.length;
-      while (m) {
-        const i = Math.floor(Math.random() * m--);
-        [arr[m], arr[i]] = [arr[i], arr[m]];
-      }
-      return arr;
-    }
-  
-    init();
-  })();
-  
+  for(let i = 0; i < stop_btn.length; i++){
+    stop_btn[i].addEventListener("click", function(e){
+        slot.stop(e.target.getAttribute("data-val"));
+    })
+  } 
+}
