@@ -12,49 +12,21 @@ const sTwelveMouse = document.getElementById("2ndTwelve");
 const tTwelve = document.querySelectorAll(".t12"); //selects third twelve
 const tTwelveMouse = document.getElementById("3rdTwelve");
 
-//top row styles
-topClick.addEventListener("mouseover", event => {
-  topRowClick.forEach((e) => {  
-      e.style.setProperty('transform', 'scale(1.09)');
-      
-  });
-});
+//betClicks
+var Three;
+const betThree = document.getElementById("t3");
+const betSix = document.getElementById("t6");
+const betNine = document.getElementById("t9");
+const betTwelve = document.getElementById("t12");
+const betFifteen = document.getElementById("t15");
+const betEighteen = document.getElementById("t28");
 
-topClick.addEventListener("mouseout", event => {
-  topRowClick.forEach((e) => {
-      e.style.backgroundColor = "transparent";
-      e.style.setProperty('transform', 'scale(1)');
-  });
-});
-
-//middle row styles
-midClick.addEventListener("mouseover", event => {
-  midRowClick.forEach((e) => {
-      e.style.setProperty('transform', 'scale(1.09)');    
-  });
-});
-
-midClick.addEventListener("mouseout", event => {
-  midRowClick.forEach((e) => {
-      e.style.setProperty('transform', 'scale(1)');
-  });
-});
-
-//bottom row styles
-botClick.addEventListener("mouseover", event => {
-  botRowClick.forEach((e) => {
-      e.style.setProperty('transform', 'scale(1.09)');    
-  });
-});
-
-botClick.addEventListener("mouseout", event => {
-  botRowClick.forEach((e) => {
-      e.style.setProperty('transform', 'scale(1)');
-  });
+betThree.addEventListener("click", function(){
+  console.log("YOU CLICKED ON 3!!");
+  window.alert("YOU CLICKED ON 3!!");
 });
 
 //twelves
-
 fTwelveMouse.addEventListener("mouseover", event => {
   fTwelve.forEach((e) => {
       e.style.setProperty('transform', 'scale(1.09)');
@@ -90,6 +62,49 @@ tTwelveMouse.addEventListener("mouseout", event => {
       e.style.setProperty('transform', 'scale(1)');
   });
 });
+//--
+
+//top row styles
+
+topClick.addEventListener("mouseover", event => {
+  topRowClick.forEach((e) => {  
+      e.style.setProperty('transform', 'scale(1.09)');
+      
+  });
+});
+
+topClick.addEventListener("mouseout", event => {
+  topRowClick.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1)');
+  });
+});
+
+//middle row styles
+midClick.addEventListener("mouseover", event => {
+  midRowClick.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1.09)');    
+  });
+});
+
+midClick.addEventListener("mouseout", event => {
+  midRowClick.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1)');
+  });
+});
+
+//bottom row styles
+botClick.addEventListener("mouseover", event => {
+  botRowClick.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1.09)');    
+  });
+});
+
+botClick.addEventListener("mouseout", event => {
+  botRowClick.forEach((e) => {
+      e.style.setProperty('transform', 'scale(1)');
+  });
+});
+//--
 
 
 
@@ -335,45 +350,11 @@ var currentBallRotation = 0;
 var currentWheelRotation = 0;
 var currentWheelIndex = 0;
 var isRotating = false;
+var zero = [ 0 ];
+var blkNum = [ 2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 29, 28, 31, 33, 35 ];
+var redNum = [ 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36 ];
 const rouletteWheelNumbers = [
-  0,
-  32,
-  15,
-  19,
-  4,
-  21,
-  2,
-  25,
-  17,
-  34,
-  6,
-  27,
-  13,
-  36,
-  11,
-  30,
-  8,
-  23,
-  10,
-  5,
-  24,
-  16,
-  33,
-  1,
-  20,
-  14,
-  31,
-  9,
-  22,
-  18,
-  29,
-  7,
-  28,
-  12,
-  35,
-  3,
-  26
-];
+  0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26 ];
 
 const getRouletteWheelNumber = index =>
   rouletteWheelNumbers[index >= 0 ? index % 37 : 37 - Math.abs(index % 37)];
@@ -402,6 +383,7 @@ function addFlipper() { //Result Card Function
     back.innerText = number;
   };
 }
+//--
 
 function startRotation(speed) {
   if (isRotating) {
@@ -464,19 +446,31 @@ function startRotation(speed) {
     });
   })();
 
-//BETTING
-console.log("this is the Betting portion.");
-console.log(result);
-if (result === 3) async () => {
-  await delay(3000);
-  console.log(result);
-  console.log("YOU WON");
-  alert("YOU WON");
+  //Betting
+  function betEngine() {
+    console.log("this is the Betting portion.");
+    console.log(result);
+
+    if (blkNum.includes(result)){
+      console.log("BLACK WON");
+    }
+
+    else if (redNum.includes(result)){
+      console.log("RED WON");
+    }
+
+    else if (zero.includes(result)){
+      console.log("ZERO WON");
+    }
+    
+    
+  }
+  //Betting
+
+betEngine();
 }
-//BETTING
 
 
-}
 
 function offsetEl(el) {
   var rect = el.getBoundingClientRect(),
