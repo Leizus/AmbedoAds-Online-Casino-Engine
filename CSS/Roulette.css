@@ -14,9 +14,7 @@ body{
     background-position: center;
     margin: 0;
     padding: 0;
-}
-
-body {
+    /**/
     font-family: sans-serif;
     background-image: url(../assets/felt.png),
       -webkit-radial-gradient(50% 40%, circle farthest-corner, #527c14, #243a0a);
@@ -143,30 +141,44 @@ body {
   width: 605px;
   display: flex;
   justify-content:flex-start;
-  gap: 18px;
   padding: 0px 0px;
-
 }
 
 .firstTwelve{
-  margin: 0px 5px; 
+  margin: 0px 1px; 
   color: #dca041;
-  padding: 15px 55px;
+  padding: 0px 58px;
   border: 2px solid rgba(255, 255, 255, 0.805);
   cursor: pointer;
 }
 
 .secondTwelve{
+  margin: 0px 5px; 
   color: #dca041;
-  padding: 15px 55px;
+  padding: 15px 67px;
   border: 2px solid rgba(255, 255, 255, 0.805);
   cursor: pointer;
 }
 
 .thirdTwelve{
-  margin: 0px 10px; 
+  margin: 0px 0px; 
   color: #dca041;
-  padding: 15px 55px;
+  padding: 0px 68px;
+  border: 2px solid rgba(255, 255, 255, 0.805);
+  cursor: pointer;
+}
+
+.bottomMost{
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  
+}
+
+.botButton{
+  color: #dca041;
+  background-color: transparent;
+  padding: 10px 33px;
   border: 2px solid rgba(255, 255, 255, 0.805);
   cursor: pointer;
 }
@@ -191,36 +203,36 @@ body {
 /* hovers */
 
 .rightBtn:hover{
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-.rBtn:hover{
-    transform: scale(1.15);
+.rBtn:hover{  
+  transform: scale(1.15);
+  filter: brightness(300%);
 }
 
 .leftMost:hover{
-    transform: scale(1.15);
+  transform: scale(1.15);
+  filter: brightness(200%);
 }
 
 .hoverBtn:hover{
   transform: scale(1.15);
 }
 
-/*result*/
 
-.result{
-  display: flexbox;
-}
 
 /* Flipper */
 
 .flipper-container {
-  perspective: 1000px;
-  -webkit-perspective: 1000px;
+  -webkit-perspective: 100px;
+  perspective: 100px;
+
 }
 
 .flipper {
-  display: none;
+  display:flex;
+  flex-direction: column;
   position: relative;
   width: 96px;
   height: 128px;
@@ -229,6 +241,7 @@ body {
   font-family: monospace;
   user-select: none;
 }
+
 .flipper.flip {
   transform: rotateX(90deg);
 }
@@ -282,23 +295,27 @@ body {
   }
 }
 
-.result {
-  max-width: 500px;
+.resultNum {
   margin: auto;
+  margin-left: 550px;
   .flipper {
     margin-right: 20px;
     margin-bottom: 20px;
   }
 }
 
+/*result*/
+
+
 /* Flipper */
 
 /* Roulette */   
 #app {
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin: 0.5em;
     contain: layout style;
     overflow: visible;
   }

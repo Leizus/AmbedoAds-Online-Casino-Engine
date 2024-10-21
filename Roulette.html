@@ -19,6 +19,7 @@
         <div id="app">
           <div>
             <div class="roulette-wheel">
+              <div class = "resultNum"></div>
               <div class="layer-2 wheel" style="transform: rotate(0deg);"></div>
               <div class="layer-3"></div>
               <div class="layer-4 wheel" style="transform: rotate(0deg);"></div>
@@ -49,49 +50,49 @@
             </div>
             <div class="tableCenter">
                 <div class="topRow">
-                    <button id="t3" class="rBtn red f12" >3</button>
-                    <button id="t6" class="rBtn black f12" >6</button>
-                    <button id="t9" class="rBtn red f12" >9</button>
-                    <button id="t12" class="rBtn red f12">12</button>
-                    <button id="t15" class="rBtn black s12">15</button>
-                    <button id="t18" class="rBtn red s12">18</button>
+                    <button id="t3" class="rBtn red f12 ote oddNo" >3</button>
+                    <button id="t6" class="rBtn black f12 ote evenNo" >6</button>
+                    <button id="t9" class="rBtn red f12 ote oddNo" >9</button>
+                    <button id="t12" class="rBtn red f12 ote evenNo">12</button>
+                    <button id="t15" class="rBtn black s12 ote oddNo">15</button>
+                    <button id="t18" class="rBtn red s12 ote evenNo">18</button>
 
-                    <button id="t21" class="rBtn red s12">21</button>
-                    <button id="t24" class="rBtn black s12">24</button>
-                    <button id="t27" class="rBtn red t12">27</button>
-                    <button id="t30" class="rBtn red t12">30</button>
-                    <button id="t33" class="rBtn black t12">33</button>
-                    <button id="t36" class="rBtn red t12">36</button>
+                    <button id="t21" class="rBtn red s12 ntt oddNo">21</button>
+                    <button id="t24" class="rBtn black s12 ntt evenNo">24</button>
+                    <button id="t27" class="rBtn red t12 ntt oddNo">27</button>
+                    <button id="t30" class="rBtn red t12 ntt evenNo">30</button>
+                    <button id="t33" class="rBtn black t12 ntt oddNo">33</button>
+                    <button id="t36" class="rBtn red t12 ntt evenNo">36</button>
                 </div>
                 <div class="midRow">
-                    <button class="rBtn black f12">2</button>
-                    <button class="rBtn red f12">5</button>
-                    <button class="rBtn black f12">8</button>
-                    <button class="rBtn black f12">11</button>
-                    <button class="rBtn red s12">14</button>
-                    <button class="rBtn black s12">17</button>
+                    <button class="rBtn black f12 ote evenNo">2</button>
+                    <button class="rBtn red f12 ote oddNo">5</button>
+                    <button class="rBtn black f12 ote evenNo">8</button>
+                    <button class="rBtn black f12 ote oddNo">11</button>
+                    <button class="rBtn red s12 ote evenNo">14</button>
+                    <button class="rBtn black s12 ote oddNo">17</button>
 
-                    <button class="rBtn black s12">20</button>
-                    <button class="rBtn red s12">23</button>
-                    <button class="rBtn black t12">26</button>
-                    <button class="rBtn black t12">29</button>
-                    <button class="rBtn red t12">32</button>
-                    <button class="rBtn black t12">35</button>
+                    <button class="rBtn black s12 ntt evenNo">20</button>
+                    <button class="rBtn red s12 ntt">23</button>
+                    <button class="rBtn black t12 ntt evenNo">26</button>
+                    <button class="rBtn black t12 ntt oddNo">29</button>
+                    <button class="rBtn red t12 ntt evenNo">32</button>
+                    <button class="rBtn black t12 ntt oddNo">35</button>
                 </div>
                 <div class="bottomRow">
-                    <button class="rBtn red f12">1</button>
-                    <button class="rBtn black f12">4</button>
-                    <button class="rBtn red f12">7</button>
-                    <button class="rBtn black f12">10</button>
-                    <button class="rBtn black s12">13</button>
-                    <button class="rBtn red s12">16</button>
+                    <button class="rBtn red f12 ote oddNo">1</button>
+                    <button class="rBtn black f12 ote evenNo">4</button>
+                    <button class="rBtn red f12 ote oddNo">7</button>
+                    <button class="rBtn black f12 ote evenNo">10</button>
+                    <button class="rBtn black s12 ote oddNo">13</button>
+                    <button class="rBtn red s12 ote evenNo">16</button>
 
-                    <button class="rBtn red s12">19</button>
-                    <button class="rBtn black s12">22</button>
-                    <button class="rBtn red t12">25</button>
-                    <button class="rBtn black t12">28</button>
-                    <button class="rBtn black t12">31</button>
-                    <button class="rBtn red t12">34</button>
+                    <button class="rBtn red s12 ntt oddNo">19</button>
+                    <button class="rBtn black s12 ntt evenNo">22</button>
+                    <button class="rBtn red t12 ntt oddNo">25</button>
+                    <button class="rBtn black t12 ntt evenNo">28</button>
+                    <button class="rBtn black t12 ntt oddNo">31</button>
+                    <button class="rBtn red t12 ntt evenNo">34</button>
                 </div>
                 <div class="twelves">
                   <button id="1stTwelve" class="firstTwelve transparent hoverBtn green">1st Twelve</button>
@@ -99,10 +100,16 @@
                   <button id="3rdTwelve" class="thirdTwelve transparent hoverBtn green">3rd Twelve</button>
                 </div>
                 <div class="bottomMost">
+                  <button id="oneTo18" class="hoverBtn botButton">1 TO 18</button>
+                  <button id ="evenBtn" class="hoverBtn botButton">EVEN</button>
+                  <button id="redBtn" class="hoverBtn botButton red"></button>
+                  <button id="blkBtn" class="hoverBtn botButton black"></button>
+                  <button id="oddBtn" class="hoverBtn botButton">ODD</button>
+                  <button id="nineteenTo36"class="hoverBtn botButton">19 TO 36</button>
                 </div>
             </div>
         </div>
-        <div class = "result"></div>
+
         <script src ="anime.min.js" ></script>  
         <script src ="Roulette.js" ></script>        
     </body>
