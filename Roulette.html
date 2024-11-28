@@ -6,16 +6,6 @@
         <link rel="stylesheet" href="CSS/Roulette.css">
     </head> 
     <body>
-        <div class="Home">
-            <button type="button" class="btn"> <a href="Home Page.html"> Home </a> </button>
-        </div>
-        <div class="dropdown">
-            <button class="button">Games</button>
-            <div class="content">
-                <a href="Poker.html">Poker</a>
-                <a href="Slots.html">Slots</a>
-            </div>
-        </div>
         <div id="app">
           <div>
             <div class="roulette-wheel">
@@ -42,7 +32,7 @@
           </div>
         </div>
         <div class="betTable">
-            <button class="leftMost">0</button>
+            <button id="l0" class="leftMost">0</button>
             <div class="rightMost">
               <button id="top2to1" class="rightBtn green">2 to 1</button>
               <button id="mid2to1" class="rightBtn green">2 to 1</button>
@@ -109,7 +99,16 @@
                 </div>
             </div>
         </div>
-
+        <div class="Home">
+          <button type="button" class="btn"> <a href="Home Page.html"> Home </a> </button>
+        </div>
+        <div class="dropdown">
+          <button class="button">Games</button>
+          <div class="content">
+              <a href="Poker.html">Poker</a>
+              <a href="Slots.html">Slots</a>
+         </div>
+        </div>
         <script src ="anime.min.js" ></script>  
         <script src ="Roulette.js" ></script>        
     </body>

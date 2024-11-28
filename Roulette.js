@@ -31,7 +31,8 @@ const blkSelect = document.querySelectorAll(".black");
 const blkNums = document.getElementById("blkBtn");
 
 //betClicks
-var betChoice;
+var betChoice = [];
+const betZero = document.getElementById("l0");
 const betThree = document.getElementById("t3");
 const betSix = document.getElementById("t6");
 const betNine = document.getElementById("t9");
@@ -40,77 +41,103 @@ const betFifteen = document.getElementById("t15");
 const betEighteen = document.getElementById("t28");
 
 
+//Group Clicks
 topClick.addEventListener("click", function(){
   console.log("YOU CLICKED ON TOP ROW!!");
   window.alert("YOU CLICKED ON TOP ROW!!");
-  betChoice = topRowNum;
+  betChoice += topRowNum;
   console.log("your choice is " + betChoice);
 });
 
 midClick.addEventListener("click", function(){
   console.log("YOU CLICKED ON MID ROW!!");
   window.alert("YOU CLICKED ON MID ROW!!");
-  betChoice = midRowNum;
+  betChoice += midRowNum;
   console.log("your choice is " + betChoice);
 });
 
 botClick.addEventListener("click", function(){
   console.log("YOU CLICKED ON BOTTOM ROW!!");
   window.alert("YOU CLICKED ON BOTTOM ROW!!");
-  betChoice = botRowNum;
+  betChoice += botRowNum;
   console.log("your choice is " + betChoice);
 });
 
 fTwelveMouse.addEventListener("click", function(){
   console.log("YOU CLICKED ON FIRST TWELVES!!");
   window.alert("YOU CLICKED ON FIRST TWELVES!!");
-  betChoice = first12Num;
+  betChoice += first12Num;
   console.log("your choice is " + betChoice);
 });
 
 sTwelveMouse.addEventListener("click", function(){
   console.log("YOU CLICKED ON SECOND TWELVES!!");
   window.alert("YOU CLICKED ON SECOND TWELVES!!");
-  betChoice = second12Num;
+  betChoice += second12Num;
   console.log("your choice is " + betChoice);
 });
 
 tTwelveMouse.addEventListener("click", function(){
   console.log("YOU CLICKED ON THIRD TWELVES!!");
   window.alert("YOU CLICKED ON THIRD TWELVES!!");
-  betChoice = third12Num;
+  betChoice += third12Num;
   console.log("your choice is " + betChoice);
 });
 
 oneToEighteen.addEventListener("click", function(){
   console.log("YOU CLICKED ON 1 - 18!!");
   window.alert("YOU CLICKED ON 1 - 18!!");
-  betChoice = oneTo18Num;
+  betChoice += oneTo18Num;
   console.log("your choice is " + betChoice);
 });
 
 redNums.addEventListener("click", function(){
   console.log("YOU CLICKED ON RED !!");
   window.alert("YOU CLICKED ON RED !!");
-  betChoice = redNum;
+  betChoice += redNum;
   console.log("your choice is " + betChoice);
 });
 
 blkNums.addEventListener("click", function(){
   console.log("YOU CLICKED ON BLACK !!");
   window.alert("YOU CLICKED ON BLACK !!");
-  betChoice = blkNum;
+  betChoice += blkNum;
   console.log("your choice is " + betChoice);
 });
+//Group Clicks
+
+for (i = 0; i <= 36; i++){
+  console.log("test" + i);
+}
+
+betZero.addEventListener("click", function(){
+  console.log("YOU CLICKED ON 0!!");
+  window.alert("YOU CLICKED ON 0!!");
+  betChoice += [ 0 ];
+  console.log("your choice is " + betChoice);
+})
 
 betThree.addEventListener("click", function(){
   console.log("YOU CLICKED ON 3!!");
   window.alert("YOU CLICKED ON 3!!");
-  betChoice = 3;
+  betChoice += [ 3 ];
+  console.log("your choice is " + betChoice);
+});
+
+betSix.addEventListener("click", function(){
+  console.log("YOU CLICKED ON 6!!");
+  window.alert("YOU CLICKED ON 6!!");
+  betChoice += [ 6 ];
+  console.log("your choice is " + betChoice);
+});
+
+betNine.addEventListener("click", function(){
+  console.log("YOU CLICKED ON 9!!");
+  window.alert("YOU CLICKED ON 9!!");
+  betChoice += [ 9 ];
   console.log("your choice is " + betChoice);
 });
 //betClicks
-
 
 //twelves
 fTwelveMouse.addEventListener("mouseover", event => {
@@ -629,35 +656,58 @@ function startRotation(speed) {
 
     setTimeout(() =>{
       console.log("this is the Betting portion.");
-      console.log(result);
-
-      if (betChoice == null){
-        console.log("YOU DIDN'T CHOOSE A NUMBER")
-        window.alert("YOU DIDN'T CHOOSE A NUMBER")
-      }
-
-      else if (!betChoice.includes(result)){
-        console.log("TRY AGAIN")
-        window.alert("TRY AGAIN")
-      }
-
-      else if (blkNum.includes(result) && betChoice.includes(result)){
-
-        console.log("YOU'RE IN CHECKING");
-        console.log("YOU WON " + result);
-        window.alert("YOU WON " + result);
-      }
-      
-      else if (redNum.includes(result) && betChoice.includes(result)){
-        console.log("YOU'RE IN CHECKING");
-        console.log("YOU WON " + result);
-        window.alert("YOU WON " + result);
+      if (result == null){
+        console.log("result is 0");
+        console.log("YOUR CHOICE IS " + betChoice);
+        if (betChoice == [ 0 ]){
+          console.log("YOU'RE IN CHECKING");
+          console.log("YOU WON 0");
+          window.alert("YOU WON 0");
+        } else {  
+            console.log("TRY AGAIN!!")
+            window.alert("TRY AGAIN!!")
+          }
+      } else {
+        console.log("result is " + result);
+        console.log("your choice is " + betChoice);
+  
+        if (betChoice == null){
+          console.log("YOU DIDN'T CHOOSE A NUMBER")
+          window.alert("YOU DIDN'T CHOOSE A NUMBER");
+        }
+  
+        else if (result == null ){
+          
+        }
+  
+        else if (betChoice.includes(result) && blkNum.includes(result)){
+  
+          console.log("YOU'RE IN BLACK CHECKING");
+          console.log("YOU WON " + result);
+          window.alert("YOU WON " + result);
+        }
         
+        else if (betChoice.includes(result) && redNum.includes(result)){
+          console.log("YOU'RE IN RED CHECKING");
+          console.log("YOU WON " + result);
+          window.alert("YOU WON " + result);
+          
+        }
+  
+        else if (!betChoice.includes(result)){
+          console.log("TRY AGAIN")
+          window.alert("TRY AGAIN")
+        }
+
       }
+
+
+
 
 
     }, 5000);
   }
+  console.clear()
   //Betting
 
 betEngine();
@@ -747,8 +797,4 @@ document.querySelector(".roulette-wheel").addEventListener(
 
 window.startRotation = startRotation;
 //Roulette
-
-//Buttons
-const three = document.getElementById("t3"); //top 3 button
-//Buttons
 
